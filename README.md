@@ -1,6 +1,8 @@
-## Largest Rectangle in a Matrix
+# Largest Rectangle in a Matrix
 
-This FastAPI application calculates the largest rectangle of 1s in a binary matrix and stores the result in a SQLite database.
+This FastAPI application calculates the largest rectangle formed by similar numbers in the matrix and stores the result in a SQLite database.
+A rectangle is defined by selecting a group of adjacent cells that contain the same number. The rectangle should have the maximum area among all rectangles formed by similar numbers.
+
 
 ## Assumptions
 - The application handles missing values in the given test case appropriately.
@@ -34,7 +36,7 @@ This FastAPI application calculates the largest rectangle of 1s in a binary matr
     uvicorn main:app 
     ```
 
-2. Send POST requests to the /input endpoint with a JSON body containing the histogram matrix. The matrix should be a list of lists representing rows and columns.
+2. Send POST requests to the /input endpoint with a JSON body containing the matrix. The matrix should be a list of lists representing rows and columns.
 
 3. The server will respond with a JSON array containing the dimensions of the largest rectangle found, including the maximum area and common integer in that rectangle.
 
@@ -58,13 +60,13 @@ The results are stored in a SQLite database named `database.sqlite`. The databas
 CREATE TABLE IF NOT EXISTS results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     matrix TEXT NOT NULL,
-    max_area TEXT NOT NULL,
+    max_area_num TEXT NOT NULL,
     execution_time REAL NOT NULL
 )
 ```
 
 - `matrix`: Stores the input matrix as a string.
-- `max_area`: Records the maximum area of the rectangle.
+- `max_area_num`: Records the maximum area and common number of the rectangle.
 - `execution_time`: Records the time taken for the calculation.
 
 ## License

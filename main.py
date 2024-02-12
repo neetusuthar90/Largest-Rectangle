@@ -1,3 +1,4 @@
+from collections import defaultdict
 from fastapi import FastAPI
 from pydantic import BaseModel
 import sqlite3
@@ -5,7 +6,7 @@ import time
 
 class MatrixModel(BaseModel):
     matrix: list[list[int]]
-    max_area: tuple
+    max_area_num: tuple
     execution_time: float
 
 class Database:
@@ -19,7 +20,7 @@ class Database:
         CREATE TABLE IF NOT EXISTS results (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             matrix TEXT NOT NULL,
-            max_area TEXT NOT NULL,
+            max_area_num TEXT NOT NULL,
             execution_time REAL NOT NULL
         )
         """
@@ -32,15 +33,14 @@ class Database:
         self.connection.commit()
         self.connection.close()
 
-    def save_result(self, matrix, max_area, execution_time):
-        query = "INSERT INTO results (matrix, max_area, execution_time) VALUES (?, ?, ?)"
-        self.cursor.execute(query, (str(matrix), str(max_area), execution_time))
+    def save_result(self, matrix, max_area_num, execution_time):
+        query = "INSERT INTO results (matrix, max_area_num, execution_time) VALUES (?, ?, ?)"
+        self.cursor.execute(query, (str(matrix), str(max_area_num), execution_time))
 
 
 app = FastAPI()
 
 
-# Helper functions
 def largest_rectangle_area(histogram):
     stack = []
     max_area = 0
