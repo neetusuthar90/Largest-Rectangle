@@ -11,6 +11,7 @@ A rectangle is defined by selecting a group of adjacent cells that contain the s
 ## Dependencies
 - Python 3.6 or higher
 - FastAPI
+- uvicorn
 - Pydantic
 - SQLite3
 
@@ -19,7 +20,7 @@ A rectangle is defined by selecting a group of adjacent cells that contain the s
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/neetusuthar90/Largest-Rectangle.git
    ```
 
 2. Install the dependencies using pip:
@@ -69,6 +70,4 @@ CREATE TABLE IF NOT EXISTS results (
 - `max_area_num`: Records the maximum area and common number of the rectangle.
 - `execution_time`: Records the time taken for the calculation.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
