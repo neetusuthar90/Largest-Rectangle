@@ -56,7 +56,9 @@ def largest_rectangle_area(histogram):
         while stack and (i == n or histogram[stack[-1]] >= histogram[i]):
             height = histogram[stack.pop()]
             width = i if not stack else i - stack[-1] - 1
-            max_area = max(max_area, width * height)
+            # Calculate area if height and width are not same
+            if height != width:
+                max_area = max(max_area, width * height)
         stack.append(i)
     return max_area
 
@@ -88,7 +90,7 @@ def largest_rectangle(matrix: list[list[int]]) -> tuple:
 
     # Initialize variables for the maximum area and the number associated with it
     max_area = 0
-    num = -1
+    num = None
     
     # Depth-first search function to traverse connected elements
     def dfs(i, j, elem, nr, nc):

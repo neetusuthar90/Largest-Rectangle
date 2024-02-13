@@ -11,13 +11,13 @@ test_matrices = [
         [1, 0, 0, 0, 5, -9],
         [5, 0, 0, 0, 5, -9],
         ],
-        "result": (1, 9),
+        "result": (1, 8),
     },
     {
         "matrix": [
             [1],
         ],
-        "result": (1, 1),
+        "result": (None, 0),
     },
     {
         "matrix": [

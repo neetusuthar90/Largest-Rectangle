@@ -6,8 +6,7 @@ A rectangle is defined by selecting a group of adjacent cells that contain the s
 
 ## Assumptions
 - The application handles missing values in the given test case appropriately.
-- The largest possible area is considered to be 9, as a square is also a type of rectangle. If the requirement is for the maximum area to be 8, the function needs to ensure that the height and width are never the same. In such a case, a matrix of size 1x1 would be considered an invalid input for the function.
-- **My code assumes that square is also a rectangle, hence the answer of sample test case is (1,9), not (1,8)**.
+- Since matrix of size 1x1 is square and hence answer will be (None, 0). 
 
 ## Dependencies
 - Python 3.6 or higher
@@ -58,7 +57,7 @@ Here's an example of making a POST request using `curl`.
 ```
 It prints the output as:
 ```
-[1,9]
+[1,8]
 ```
 
 ## Testing
